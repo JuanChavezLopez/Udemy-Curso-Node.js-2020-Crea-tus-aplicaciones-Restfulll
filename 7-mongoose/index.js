@@ -54,7 +54,7 @@ async function getFilterPriceCars(){
 getFilterPriceInNinCars();
 async function getFilterPriceInNinCars(){
     const cars = await Car
-        .find({price: {$gte: 2000, $lt:5000}});
+        .find({extras: {$in: 'Manual'}});
     console.log(cars);
 }
 
@@ -69,7 +69,7 @@ async function createCar(){
         price: 100,
         year: 1001,
         sold: false,
-        extras: ['Automatic', '4*4']
+        extras: ['Manual', '4*4']
     })
 
    const result = await car.save();
